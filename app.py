@@ -44,3 +44,10 @@ with open('output.txt', 'w') as outputFile:
                 # Strip the word from the dictionary
                 del inputDict[word2]
                 wordArray.remove(word2)
+
+# Write updated dictionary to file
+with open('output.csv', 'w') as outputCsvFile:
+    csvWriter = csv.writer(outputCsvFile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+    for key in inputDict:
+        csvWriter.writerow([key, inputDict[key]])
